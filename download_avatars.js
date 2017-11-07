@@ -20,9 +20,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
 }
 
 getRepoContributors(process.argv[2], process.argv[3], (err, result)=> {
-  if (!process.argv[2] || !process.argv[3]){
-    console.log("Give me 2 arguments");
-    return;
+
   }
   console.log("Errors:", err);
   console.log("Result:", result);
