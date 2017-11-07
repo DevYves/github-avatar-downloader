@@ -1,5 +1,5 @@
 var request = require('request');
-// file used to prtoect git token
+// file used to protect git token id
 var secret = require('./secret');
 var fs = require('fs');
 
