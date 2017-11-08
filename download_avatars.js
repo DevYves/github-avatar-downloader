@@ -4,6 +4,8 @@ var request = require('request');
 // var secret = require('./secret');
 var fs = require('fs');
 
+const argument = process.argv.slice(2);
+
 console.log('Welcome to the GitHub Avatar Downloader!');
 
 //function that defines the connection
@@ -24,10 +26,12 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 // introduce user input on the command line with argv.
 // if falsey statement used as a guard if user does not input 2 arguments
-getRepoContributors(process.argv[2], process.argv[3], (err, result)=> {
-  if (!process.argv[2] || !process.argv[3]){
-    console.log("Give me 2 arguments")
+getRepoContributors(argument[1], argument[2], (err, result)=> {
+  if (argument.length !== 2){
+    console.log("Give me 2 arguments");
+    return;
   }
+
   console.log("Errors:", err);
   console.log("Result:", result);
   //downloads images at contributor.avatar_url and saves them based on contributor login id
