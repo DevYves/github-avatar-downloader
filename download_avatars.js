@@ -1,18 +1,18 @@
+require('dotenv').config()
 var request = require('request');
 // file used to protect git token id
-var secret = require('./secret');
+// var secret = require('./secret');
 var fs = require('fs');
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
 //function that defines the connection
 function getRepoContributors(repoOwner, repoName, cb) {
-  console.log(secret);
   const options = {
     url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
     headers: {
       'User-Agent': 'request',
-      'Authorization': 'token ' + secret.GITHUB_TOKEN
+      'Authorization': 'token ' + process.env.GITHUB_TOKEN
     }
   };
 
